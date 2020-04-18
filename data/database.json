@@ -1,0 +1,51 @@
+{
+  "cars": [
+    {
+      "id": "",
+      "intNumber": "",
+      "plate": "",
+      "type": "",
+      "model": "",
+      "ability": "",
+      "owner": ""
+    },
+    {
+      "id": "132",
+      "intNumber": "132",
+      "plate": "EQP 501",
+      "type": "Camioneta",
+      "model": "2015",
+      "ability": "7",
+      "owner": "Transporte San Gabriel"
+    },
+    {
+      "id": "118",
+      "intNumber": "118",
+      "plate": "SMP 701",
+      "type": "Microbus ",
+      "model": "2010",
+      "ability": "13",
+      "owner": "Marco Fidel Suarez"
+    }
+  ],
+  "drivers": [
+    {
+      "id": "",
+      "name": "",
+      "cellphone": "",
+      "adress": ""
+    },
+    {
+      "id": "79534345",
+      "name": "RUBEN DARIO CASTRO GARCÍA",
+      "cellphone": "3132275632",
+      "adress": "Cra. 3 No.2-33"
+    },
+    {
+      "id": "80246134",
+      "name": "CHARLIE GOMEZ CHIQUITO",
+      "cellphone": "3214901128",
+      "adress": "Cll. 130A Bis No.87D-36"
+    }
+  ]
+}
