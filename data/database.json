@@ -1,15 +1,6 @@
 {
   "cars": [
     {
-      "id": "",
-      "intNumber": "",
-      "plate": "",
-      "type": "",
-      "model": "",
-      "ability": "",
-      "owner": ""
-    },
-    {
       "id": "132",
       "intNumber": "132",
       "plate": "EQP 501",
@@ -29,12 +20,6 @@
     }
   ],
   "drivers": [
-    {
-      "id": "",
-      "name": "",
-      "cellphone": "",
-      "adress": ""
-    },
     {
       "id": "79534345",
       "name": "RUBEN DARIO CASTRO GARCÍA",
