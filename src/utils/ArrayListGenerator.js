@@ -13,7 +13,6 @@ export default function ArrayListGenerator(Array, where) {
     default:
       break
   }
-
   arrs.map(arrForMultiSelect =>
     arrsForMultiSelect.push({
       label: arrForMultiSelect,

@@ -20,7 +20,8 @@
     "react-multi-select-component": "^2.0.1"
   },
   "devDependencies": {
-    "prettier": "2.0.4"
+    "prettier": "2.0.4",
+    "styled-components": "^5.1.0"
   },
   "keywords": [
     "gatsby"

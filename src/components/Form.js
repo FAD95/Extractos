@@ -4,20 +4,22 @@ import { drivers, cars } from "../../data/database.json"
 import ArrayListGenerator from "../utils/ArrayListGenerator"
 import ColombiaListGenerator from "../utils/ColombiaListGenerator"
 import Modal from "./Modal"
+import { Link } from "gatsby"
 const Form = () => {
+  const startDate = useRef()
+  const finishDate = useRef()
+  const contractObjective = useRef()
+
   const [driver, setDriver] = useState([])
   const [car, setCar] = useState([])
   const [client, setClient] = useState([])
   const [origin, setOrigin] = useState([])
   const [destiny, setDestiny] = useState([])
-  const [startDate, setStartDate] = useState([])
-  const [finishDate, setFinishDate] = useState([])
+  const [startDateHook, setStartDateHook] = useState([])
+  const [finishDateHook, setFinishDateHook] = useState([])
+  const [contractObejectiveHook, setContractObejectiveHook] = useState()
   const [openModal, setOpenModal] = useState(false)
   const [submit, setSubmit] = useState(false)
-
-  const date1 = useRef()
-  const date2 = useRef()
-  const contractObjective = useRef()
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -51,11 +53,15 @@ const Form = () => {
   }
 
   const handleStartDate = event => {
-    setStartDate(date1.current.value)
+    setStartDateHook(startDate.current.value)
   }
 
   const handleFinishDate = event => {
-    setFinishDate(date2.current.value)
+    setFinishDateHook(finishDate.current.value)
+  }
+
+  const handleTextarea = e => {
+    setContractObejectiveHook(contractObjective.current.value)
   }
 
   useEffect(() => {})
@@ -125,7 +131,7 @@ const Form = () => {
           <div>
             <label htmlFor="StartDate">Fecha de inicio: </label>
             <input
-              ref={date1}
+              ref={startDate}
               type="date"
               id="StartDate"
               onChange={handleStartDate}
@@ -134,7 +140,7 @@ const Form = () => {
           <div>
             <label htmlFor="FinishDate">Fecha de finalización: </label>
             <input
-              ref={date2}
+              ref={finishDate}
               type="date"
               id="FinishDate"
               onChange={handleFinishDate}
@@ -149,9 +155,33 @@ const Form = () => {
             id="Target"
             cols="30"
             rows="3"
+            onChange={handleTextarea}
           ></textarea>
         </section>
         <button onClick={handleSubmit}>Crear</button>
+        {origin > [] &&
+        driver > [] &&
+        car > [] &&
+        destiny > [] &&
+        startDate > "" &&
+        finishDate > "" &&
+        contractObejectiveHook > "" ? (
+          <Link
+            to="Preview"
+            state={{
+              origin: origin[0].value,
+              driver: driver,
+              car: car,
+              client: client[0].value,
+              destiny: destiny[0].value,
+              startDate: startDateHook,
+              finishDate: finishDateHook,
+              contractObjective: contractObejectiveHook,
+            }}
+          >
+            Preview
+          </Link>
+        ) : null}
       </form>
 
       {openModal ? (
