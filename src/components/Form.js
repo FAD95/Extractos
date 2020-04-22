@@ -3,7 +3,6 @@ import MultiSelect from "react-multi-select-component"
 import { drivers, cars } from "../../data/database.json"
 import ArrayListGenerator from "../utils/ArrayListGenerator"
 import ColombiaListGenerator from "../utils/ColombiaListGenerator"
-import Modal from "./Modal"
 import { Link } from "gatsby"
 const Form = () => {
   const startDate = useRef()
@@ -18,32 +17,6 @@ const Form = () => {
   const [startDateHook, setStartDateHook] = useState([])
   const [finishDateHook, setFinishDateHook] = useState([])
   const [contractObejectiveHook, setContractObejectiveHook] = useState()
-  const [openModal, setOpenModal] = useState(false)
-  const [submit, setSubmit] = useState(false)
-
-  const handleSubmit = event => {
-    event.preventDefault()
-    setSubmit(true)
-  }
-  if (submit) {
-    if (
-      origin > [] &&
-      driver > [] &&
-      car > [] &&
-      destiny > [] &&
-      startDate > "" &&
-      finishDate > "" &&
-      contractObjective > ""
-    ) {
-      setOpenModal(true)
-      setSubmit(false)
-    } else {
-      setSubmit(false)
-      alert(
-        "Falta algún campo por llenar. Por favor complete los datos e intentelo nuevamente"
-      )
-    }
-  }
 
   const handleOriginClear = event => {
     origin > [] ? setOrigin(event.splice(0, 1)) : setOrigin(event)
@@ -67,7 +40,7 @@ const Form = () => {
   useEffect(() => {})
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form>
         <section>
           <label htmlFor="Driver">Nombre del conductor: </label>
           <MultiSelect
@@ -158,7 +131,6 @@ const Form = () => {
             onChange={handleTextarea}
           ></textarea>
         </section>
-        <button onClick={handleSubmit}>Crear</button>
         {origin > [] &&
         driver > [] &&
         car > [] &&
@@ -167,7 +139,7 @@ const Form = () => {
         finishDate > "" &&
         contractObejectiveHook > "" ? (
           <Link
-            to="Preview"
+            to="preview"
             state={{
               origin: origin[0].value,
               driver: driver,
@@ -183,20 +155,6 @@ const Form = () => {
           </Link>
         ) : null}
       </form>
-
-      {openModal ? (
-        <Modal
-          origin={origin[0].value}
-          driver={driver}
-          car={car}
-          client={client[0].value}
-          destiny={destiny[0].value}
-          startDate={startDate}
-          finishDate={finishDate}
-          contractObjective={contractObjective.current.value}
-          close={setOpenModal}
-        />
-      ) : null}
     </>
   )
 }
