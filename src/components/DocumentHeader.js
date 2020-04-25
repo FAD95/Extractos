@@ -11,26 +11,27 @@ import {
 
 export default function DocumentHeaderComponent({ data }) {
   const date = new Date()
-  var meses = new Array(
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre"
-  )
+  // var meses = new Array(
+  //   "Enero",
+  //   "Febrero",
+  //   "Marzo",
+  //   "Abril",
+  //   "Mayo",
+  //   "Junio",
+  //   "Julio",
+  //   "Agosto",
+  //   "Septiembre",
+  //   "Octubre",
+  //   "Noviembre",
+  //   "Diciembre"
+  // )
   return (
     <DocumentHeader>
       <DocumentHeaderInfo>
         <HeaderImageContainer>
-          <HeaderImg
-            src={data.allFile.edges[2].node.childImageSharp.original.src}
+          {" "}
+          <img
+            src={data.allFile.edges[3].node.childImageSharp.original.src}
             alt=""
           />
         </HeaderImageContainer>
@@ -41,10 +42,10 @@ export default function DocumentHeaderComponent({ data }) {
             alt=""
           />
         </HeaderImageContainer>
+
         <HeaderImageContainer>
-          {" "}
-          <img
-            src={data.allFile.edges[3].node.childImageSharp.original.src}
+          <HeaderImg
+            src={data.allFile.edges[2].node.childImageSharp.original.src}
             alt=""
           />
         </HeaderImageContainer>
@@ -55,10 +56,8 @@ export default function DocumentHeaderComponent({ data }) {
           servico público de transporte terrestre automotor especial FICHA
         </DocumentTitle>
         <DocumentSubTitle>
-          Expedido el {date.getDate()} de {meses[date.getMonth()]} de{" "}
-          {date.getFullYear()}
+          # 208005813 {date.getFullYear()} 0123 0681
         </DocumentSubTitle>
-        <DocumentSubTitle># 208005813 2019 0123 0681</DocumentSubTitle>
       </DocumentHeaderDescription>
     </DocumentHeader>
   )

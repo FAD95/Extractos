@@ -18,6 +18,7 @@ import {
   EndFooter,
   SignatureContainer,
   TableTitle,
+  TDateContainer,
 } from "../styles/components"
 import DocumentHeaderComponent from "../components/DocumentHeader"
 export const query = graphql`
@@ -92,36 +93,38 @@ export default function Preview({ location, data }) {
           </DocumentMainDiv>
         </DocumentSection>
         <section>
-          <DocumentSubTitle>VIGENCIA DEL CONTRATO</DocumentSubTitle>
+          <TableTitle>VIGENCIA DEL CONTRATO</TableTitle>
           <DocumentSection>
-            <DocumentSubTitleH3>Fecha inicial:</DocumentSubTitleH3>
-            <TDate>
-              <Tr>
-                <Th>Día</Th>
-                <Th>Mes</Th>
-                <Th>Año</Th>
-              </Tr>
-              <Tr>
-                <Td>{startDate.slice(8, 10)}</Td>
-                <Td>{startDate.slice(5, 7)}</Td>
-                <Td>{startDate.slice(0, 4)}</Td>
-              </Tr>
-            </TDate>
-          </DocumentSection>
-          <DocumentSection>
-            <DocumentSubTitleH3>Fecha de vencimiento: </DocumentSubTitleH3>
-            <TDate>
-              <Tr>
-                <Th>Día</Th>
-                <Th>Mes</Th>
-                <Th>Año</Th>
-              </Tr>
-              <Tr>
-                <Td>{finishDate.slice(8, 10)}</Td>
-                <Td>{finishDate.slice(5, 7)}</Td>
-                <Td>{finishDate.slice(0, 4)}</Td>
-              </Tr>
-            </TDate>
+            <TDateContainer>
+              <DocumentSubTitleH3>Fecha inicial</DocumentSubTitleH3>
+              <TDate>
+                <Tr>
+                  <Th>Día</Th>
+                  <Th>Mes</Th>
+                  <Th>Año</Th>
+                </Tr>
+                <Tr>
+                  <Td>{startDate.slice(8, 10)}</Td>
+                  <Td>{startDate.slice(5, 7)}</Td>
+                  <Td>{startDate.slice(0, 4)}</Td>
+                </Tr>
+              </TDate>
+            </TDateContainer>
+            <TDateContainer>
+              <DocumentSubTitleH3>Fecha de vencimiento</DocumentSubTitleH3>
+              <TDate>
+                <Tr>
+                  <Th>Día</Th>
+                  <Th>Mes</Th>
+                  <Th>Año</Th>
+                </Tr>
+                <Tr>
+                  <Td>{finishDate.slice(8, 10)}</Td>
+                  <Td>{finishDate.slice(5, 7)}</Td>
+                  <Td>{finishDate.slice(0, 4)}</Td>
+                </Tr>
+              </TDate>
+            </TDateContainer>
           </DocumentSection>
         </section>
         <section>
