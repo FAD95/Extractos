@@ -116,8 +116,6 @@ export const TableTitle = styled.h2`
   text-align: center;
   margin: 0;
 `
-<<<<<<< HEAD
-=======
 
 export const Signature = styled.img`
   width: 300px;
@@ -127,4 +125,3 @@ export const ContactInfo = styled.div`
   width: 100%;
   margin: 0;
 `
->>>>>>> Documento
