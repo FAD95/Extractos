@@ -138,14 +138,3 @@ export const TableTitle = styled.h2`
   border-bottom: 1px solid black;
   margin: 0;
 `
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(24, 1fr);
-  border: solid 1px black;
-`
-
-export const GridElement = styled.div`
-  border-bottom: solid 1px black;
-  grid-column: 1/7;
-`

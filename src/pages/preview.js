@@ -1,26 +1,31 @@
 import React from "react"
 import { graphql } from "gatsby"
 import {
-  DocumentMain,
-  DocumentSection,
-  DocumentMainDiv,
-  DocumentFooter,
-  DocumentArticle,
-  DocumentSubTitle,
-  DocumentSubTitleH3,
-  DocumentInfo,
-  Table,
-  Tr,
-  Th,
-  Td,
-  TDate,
-  FooterImg,
-  EndFooter,
-  SignatureContainer,
-  TableTitle,
-  TDateContainer,
-} from "../styles/components"
-import DocumentHeaderComponent from "../components/DocumentHeader"
+  Grid,
+  LogoAyG,
+  NumeroResolucion,
+  LogoSP,
+  Day,
+  Month,
+  Year,
+  Model,
+  CarClass,
+  Brand,
+  Col4Right,
+  Col6Right,
+  Col10Right,
+  Col2Left,
+  Col3Left,
+  Col6Left,
+  Col8Left,
+  Col12,
+  Col2_6Mid,
+  Names,
+  Cedula,
+  Licencia,
+  Vigencia,
+} from "../styles/DocumentStyles"
+
 export const query = graphql`
   query GET_DATA {
     allFile {
@@ -51,194 +56,75 @@ export default function Preview({ location, data }) {
   } = state
 
   return (
-    <DocumentArticle>
-      <DocumentHeaderComponent data={data} />
-      <DocumentMain>
-        <DocumentSection>
-          <DocumentMainDiv>
-            <DocumentSubTitle>Razón social:</DocumentSubTitle>
-            <DocumentInfo>Servicio especial A&G TOURS S.A.S</DocumentInfo>
-          </DocumentMainDiv>
-          <DocumentMainDiv>
-            <DocumentSubTitle>NIT:</DocumentSubTitle>
-            <DocumentInfo>900.461.010-6</DocumentInfo>
-          </DocumentMainDiv>
-        </DocumentSection>
-        <DocumentSection>
-          <DocumentSubTitle>Contrato Nº: </DocumentSubTitle>
-          <DocumentInfo>...</DocumentInfo>
-        </DocumentSection>
-        <DocumentSection>
-          <DocumentMainDiv>
-            <DocumentSubTitle>Contratante: </DocumentSubTitle>
-            <DocumentInfo>{client}</DocumentInfo>
-          </DocumentMainDiv>
-          <DocumentMainDiv>
-            <DocumentSubTitle>C.C: </DocumentSubTitle>
-            <DocumentInfo>123</DocumentInfo>
-          </DocumentMainDiv>
-        </DocumentSection>
-        <DocumentSection>
-          <DocumentSubTitle>Objeto del contrato: </DocumentSubTitle>
-          <DocumentInfo>{contractObjective}</DocumentInfo>
-        </DocumentSection>
-        <DocumentSection>
-          <DocumentMainDiv>
-            <DocumentSubTitle>Origen: </DocumentSubTitle>
-            <DocumentInfo>{origin}</DocumentInfo>
-          </DocumentMainDiv>
-          <DocumentMainDiv>
-            <DocumentSubTitle>Destino: </DocumentSubTitle>
-            <DocumentInfo>{destiny}</DocumentInfo>
-          </DocumentMainDiv>
-        </DocumentSection>
-        <section>
-          <TableTitle>VIGENCIA DEL CONTRATO</TableTitle>
-          <DocumentSection>
-            <TDateContainer>
-              <DocumentSubTitleH3>Fecha inicial</DocumentSubTitleH3>
-              <TDate>
-                <Tr>
-                  <Th>Día</Th>
-                  <Th>Mes</Th>
-                  <Th>Año</Th>
-                </Tr>
-                <Tr>
-                  <Td>{startDate.slice(8, 10)}</Td>
-                  <Td>{startDate.slice(5, 7)}</Td>
-                  <Td>{startDate.slice(0, 4)}</Td>
-                </Tr>
-              </TDate>
-            </TDateContainer>
-            <TDateContainer>
-              <DocumentSubTitleH3>Fecha de vencimiento</DocumentSubTitleH3>
-              <TDate>
-                <Tr>
-                  <Th>Día</Th>
-                  <Th>Mes</Th>
-                  <Th>Año</Th>
-                </Tr>
-                <Tr>
-                  <Td>{finishDate.slice(8, 10)}</Td>
-                  <Td>{finishDate.slice(5, 7)}</Td>
-                  <Td>{finishDate.slice(0, 4)}</Td>
-                </Tr>
-              </TDate>
-            </TDateContainer>
-          </DocumentSection>
-        </section>
-        <section>
-          <TableTitle>CARACTERÍSTICAS DEL VEHICULO</TableTitle>
-          <Table>
-            <Tr>
-              <Th>Placa</Th>
-              <Th>Marca</Th>
-              <Th>Modelo</Th>
-              <Th>Clase</Th>
-              <Th>Capacidad</Th>
-              <Th>Nº interno</Th>
-              <Th>Nº tarjeta operación</Th>
-            </Tr>
-            {car.map((value, index) => {
-              return (
-                <Tr key={index}>
-                  {/* Placa */}
-                  <Td>{value.value}</Td>
-
-                  {/* Marca */}
-                  <Td>{value.value}</Td>
-
-                  {/* Modelo */}
-                  <Td>{value.value}</Td>
-
-                  {/* Clase */}
-                  <Td>{value.value}</Td>
-
-                  {/* Capacidad */}
-                  <Td>{value.value}</Td>
-
-                  {/* Número interno */}
-                  <Td>...</Td>
-
-                  {/* Número de tarjeta de operación */}
-                  <Td>...</Td>
-                </Tr>
-              )
-            })}
-          </Table>
-        </section>
-        <section>
-          <TableTitle>CONDUCTOR</TableTitle>
-          <Table>
-            <Tr>
-              <Th>Nombres y apellidos</Th>
-              <Th>Nº Cédula</Th>
-              <Th>Nº Licencia</Th>
-              <Th>Vigencia</Th>
-            </Tr>
-            {driver.map((value, index) => {
-              return (
-                <Tr>
-                  <Td>{value.value}</Td>
-                  <Td>{value.value}</Td>
-                  <Td>{value.value}</Td>
-                  <Td>{value.value}</Td>
-                </Tr>
-              )
-            })}
-          </Table>
-        </section>
-        <section>
-          <TableTitle>RESPONSABLE CONTRATANTE</TableTitle>
-          <Table>
-            <Tr>
-              <Th>Nombres y apellidos</Th>
-              <Th>Nº Cédula</Th>
-              <Th>Telefono</Th>
-              <Th>Dirección</Th>
-            </Tr>
-            <Tr>
-              <Td>El contratante</Td>
-              <Td>El contratante</Td>
-              <Td>El contratante</Td>
-              <Td>El contratante</Td>
-            </Tr>
-          </Table>
-        </section>
-      </DocumentMain>
-      <DocumentFooter>
-        <DocumentSection>
-          <div>
-            <DocumentSubTitle>DATOS DE CONTACTO DE LA EMPRESA</DocumentSubTitle>
-            <DocumentInfo>
-              Servicio especial A&G TOURS S.A.S <br />
-              Bogotá PBX (57-1) 3112233 <br />
-              Cel. 310 284 6000 <br />
-              Email: agtours.sas@gmail.com www.aygtours.com
-            </DocumentInfo>
-          </div>
-          <SignatureContainer>
-            <DocumentSubTitle>FIRMA DEL REPRESENTANTE LEGAL</DocumentSubTitle>
-            <div>
-              <img src="" alt="La firma" />
-            </div>
-            <small>Firma Digital Ley 527 del 199, decreto 2364 de 2012</small>
-          </SignatureContainer>
-        </DocumentSection>
-
-        <EndFooter>
-          <div>
-            <DocumentInfo>Verificación virtual?</DocumentInfo>
-          </div>
-          <div>
-            <FooterImg
-              src={data.allFile.edges[5].node.childImageSharp.original.src}
-              alt="SUPERTRANSPORTE"
-            />
-          </div>
-        </EndFooter>
-      </DocumentFooter>
-      {/* <button onClick={handleClose}>Cerrar</button> */}
-    </DocumentArticle>
+    <Grid>
+      <Col6Left className="Header">Logo MT</Col6Left>
+      <LogoAyG className="Header">Logo A&G</LogoAyG>
+      <NumeroResolucion className="Header">
+        Resolucion Min transporte
+      </NumeroResolucion>
+      <LogoSP className="Header">Logo Super trasnporte</LogoSP>
+      <Col12 className="Text">FORMATO UNICO</Col12>
+      <Col8Left className="Text">Razón social</Col8Left>
+      <Col4Right className="Text">NIT</Col4Right>
+      <Col8Left className="Text">SERVICIO ESPECIAL A&G TOURS S.A.S</Col8Left>
+      <Col4Right className="Text">900.461.010 - 6</Col4Right>
+      <Col2Left className="Text">CONTRATO Nº</Col2Left>
+      <Col10Right className="Text">0019</Col10Right>
+      <Col2Left className="Text">CONTRATANTE</Col2Left>
+      <Col2_6Mid className="Text">CENTELSA S.A</Col2_6Mid>
+      <Col4Right className="Text">890,300,413</Col4Right>
+      <Col12 className="Text">OBJETO DEL CONTRATO:</Col12>
+      <Col12 className="Text">Origen-Destinos</Col12>
+      <Col12 className="Text">Origen-DestinosCiudades</Col12>
+      <Col8Left className="Text">Tipo de contrato</Col8Left>
+      <Col4Right className="Text">Con:</Col4Right>
+      <Col12 className="Text">Vigencia del contrato</Col12>
+      <Col6Left className="Text">Fecha de inicio</Col6Left>
+      <Day className="Text">Dia</Day>
+      <Month className="Text">Mes</Month>
+      <Year className="Text">Año</Year>
+      <Col6Left className="Text">Fecha de vencimiento</Col6Left>
+      <Day className="Text">Dia</Day>
+      <Month className="Text">Mes</Month>
+      <Year className="Text">Año</Year>
+      <Col12>Caracteristicas del vehiculo</Col12>
+      <Col3Left>Placa</Col3Left>
+      <Model>Modelo</Model>
+      <Brand>Marca</Brand>
+      <CarClass>Clase</CarClass>
+      <Col3Left>Placa</Col3Left>
+      <Model>Modelo</Model>
+      <Brand>Marca</Brand>
+      <CarClass>Clase</CarClass>
+      <Col6Left>Numero interno</Col6Left>
+      <Col6Right>Numero tarheta de operaciones</Col6Right>
+      <Col6Left>Numero interno</Col6Left>
+      <Col6Right>Numero tarheta de operaciones</Col6Right>
+      <Col2Left>Conductores</Col2Left>
+      <Names>Nombres y apellidos</Names>
+      <Cedula>Nº Cedula</Cedula>
+      <Licencia>Nº Licencia conduccion</Licencia>
+      <Vigencia>Vigencia</Vigencia>
+      <Col2Left>Conductor 1</Col2Left>
+      <Names>Nombres y apellidos</Names>
+      <Cedula>Nº Cedula</Cedula>
+      <Licencia>Nº Licencia conduccion</Licencia>
+      <Vigencia>Vigencia</Vigencia>
+      <Col2Left>Conductor 2</Col2Left>
+      <Names>Nombres y apellidos</Names>
+      <Cedula>Nº Cedula</Cedula>
+      <Licencia>Nº Licencia conduccion</Licencia>
+      <Vigencia>Vigencia</Vigencia>
+      <Col2Left>Conductor 3</Col2Left>
+      <Names>Nombres y apellidos</Names>
+      <Cedula>Nº Cedula</Cedula>
+      <Licencia>Nº Licencia conduccion</Licencia>
+      <Vigencia>Vigencia</Vigencia>
+      <Col2Left>Responsable Contratante</Col2Left>
+      <Names>Nombres y apellidos</Names>
+      <Cedula>Nº Cedula</Cedula>
+      <Licencia>Telefono</Licencia>
+      <Vigencia>Dirección</Vigencia>
+    </Grid>
   )
 }
