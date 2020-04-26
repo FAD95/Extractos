@@ -19,6 +19,8 @@ import {
   SignatureContainer,
   TableTitle,
   TDateContainer,
+  Signature,
+  ContactInfo,
 } from "../styles/components"
 import DocumentHeaderComponent from "../components/DocumentHeader"
 export const query = graphql`
@@ -54,8 +56,8 @@ export default function Preview({ location, data }) {
     <DocumentArticle>
       <DocumentHeaderComponent data={data} />
       <DocumentMain>
-        <DocumentSection>
-          <DocumentMainDiv>
+        <DocumentSection className="Border-bottom">
+          <DocumentMainDiv className="Border-right">
             <DocumentSubTitle>Razón social:</DocumentSubTitle>
             <DocumentInfo>Servicio especial A&G TOURS S.A.S</DocumentInfo>
           </DocumentMainDiv>
@@ -64,12 +66,12 @@ export default function Preview({ location, data }) {
             <DocumentInfo>900.461.010-6</DocumentInfo>
           </DocumentMainDiv>
         </DocumentSection>
-        <DocumentSection>
+        <DocumentSection className="Border-bottom">
           <DocumentSubTitle>Contrato Nº: </DocumentSubTitle>
           <DocumentInfo>...</DocumentInfo>
         </DocumentSection>
-        <DocumentSection>
-          <DocumentMainDiv>
+        <DocumentSection className="Border-bottom">
+          <DocumentMainDiv className="Border-right">
             <DocumentSubTitle>Contratante: </DocumentSubTitle>
             <DocumentInfo>{client}</DocumentInfo>
           </DocumentMainDiv>
@@ -78,11 +80,11 @@ export default function Preview({ location, data }) {
             <DocumentInfo>123</DocumentInfo>
           </DocumentMainDiv>
         </DocumentSection>
-        <DocumentSection>
+        <DocumentSection className="Border-bottom">
           <DocumentSubTitle>Objeto del contrato: </DocumentSubTitle>
           <DocumentInfo>{contractObjective}</DocumentInfo>
         </DocumentSection>
-        <DocumentSection>
+        <DocumentSection className="Border-bottom">
           <DocumentMainDiv>
             <DocumentSubTitle>Origen: </DocumentSubTitle>
             <DocumentInfo>{origin}</DocumentInfo>
@@ -92,73 +94,81 @@ export default function Preview({ location, data }) {
             <DocumentInfo>{destiny}</DocumentInfo>
           </DocumentMainDiv>
         </DocumentSection>
-        <section>
-          <TableTitle>VIGENCIA DEL CONTRATO</TableTitle>
+        <section className="Border-bottom">
+          <TableTitle className="Border-bottom">
+            VIGENCIA DEL CONTRATO
+          </TableTitle>
           <DocumentSection>
-            <TDateContainer>
-              <DocumentSubTitleH3>Fecha inicial</DocumentSubTitleH3>
+            <TDateContainer className="Border-right">
+              <DocumentSubTitleH3 className="Border-bottom">
+                Fecha inicial
+              </DocumentSubTitleH3>
               <TDate>
                 <Tr>
-                  <Th>Día</Th>
-                  <Th>Mes</Th>
+                  <Th className="Border-right">Día</Th>
+                  <Th className="Border-right">Mes</Th>
                   <Th>Año</Th>
                 </Tr>
                 <Tr>
-                  <Td>{startDate.slice(8, 10)}</Td>
-                  <Td>{startDate.slice(5, 7)}</Td>
+                  <Td className="Border-right">{startDate.slice(8, 10)}</Td>
+                  <Td className="Border-right">{startDate.slice(5, 7)}</Td>
                   <Td>{startDate.slice(0, 4)}</Td>
                 </Tr>
               </TDate>
             </TDateContainer>
             <TDateContainer>
-              <DocumentSubTitleH3>Fecha de vencimiento</DocumentSubTitleH3>
+              <DocumentSubTitleH3 className="Border-bottom">
+                Fecha de vencimiento
+              </DocumentSubTitleH3>
               <TDate>
                 <Tr>
-                  <Th>Día</Th>
-                  <Th>Mes</Th>
+                  <Th className="Border-right">Día</Th>
+                  <Th className="Border-right">Mes</Th>
                   <Th>Año</Th>
                 </Tr>
                 <Tr>
-                  <Td>{finishDate.slice(8, 10)}</Td>
-                  <Td>{finishDate.slice(5, 7)}</Td>
+                  <Td className="Border-right">{finishDate.slice(8, 10)}</Td>
+                  <Td className="Border-right">{finishDate.slice(5, 7)}</Td>
                   <Td>{finishDate.slice(0, 4)}</Td>
                 </Tr>
               </TDate>
             </TDateContainer>
           </DocumentSection>
         </section>
-        <section>
-          <TableTitle>CARACTERÍSTICAS DEL VEHICULO</TableTitle>
+        <section className="Border-bottom">
+          <TableTitle className="Border-bottom">
+            CARACTERÍSTICAS DEL VEHICULO
+          </TableTitle>
           <Table>
             <Tr>
-              <Th>Placa</Th>
-              <Th>Marca</Th>
-              <Th>Modelo</Th>
-              <Th>Clase</Th>
-              <Th>Capacidad</Th>
-              <Th>Nº interno</Th>
+              <Th className="Border-right">Placa</Th>
+              <Th className="Border-right">Marca</Th>
+              <Th className="Border-right">Modelo</Th>
+              <Th className="Border-right">Clase</Th>
+              <Th className="Border-right">Capacidad</Th>
+              <Th className="Border-right">Nº interno</Th>
               <Th>Nº tarjeta operación</Th>
             </Tr>
             {car.map((value, index) => {
               return (
                 <Tr key={index}>
                   {/* Placa */}
-                  <Td>{value.value}</Td>
+                  <Td className="Border-right">{value.value}</Td>
 
                   {/* Marca */}
-                  <Td>{value.value}</Td>
+                  <Td className="Border-right">{value.value}</Td>
 
                   {/* Modelo */}
-                  <Td>{value.value}</Td>
+                  <Td className="Border-right">{value.value}</Td>
 
                   {/* Clase */}
-                  <Td>{value.value}</Td>
+                  <Td className="Border-right">{value.value}</Td>
 
                   {/* Capacidad */}
-                  <Td>{value.value}</Td>
+                  <Td className="Border-right">{value.value}</Td>
 
                   {/* Número interno */}
-                  <Td>...</Td>
+                  <Td className="Border-right">...</Td>
 
                   {/* Número de tarjeta de operación */}
                   <Td>...</Td>
@@ -167,48 +177,66 @@ export default function Preview({ location, data }) {
             })}
           </Table>
         </section>
-        <section>
-          <TableTitle>CONDUCTOR</TableTitle>
+        <section className="Border-bottom">
+          <TableTitle className="Border-bottom">CONDUCTOR</TableTitle>
           <Table>
-            <Tr>
-              <Th>Nombres y apellidos</Th>
-              <Th>Nº Cédula</Th>
-              <Th>Nº Licencia</Th>
-              <Th>Vigencia</Th>
-            </Tr>
-            {driver.map((value, index) => {
-              return (
-                <Tr>
-                  <Td>{value.value}</Td>
-                  <Td>{value.value}</Td>
-                  <Td>{value.value}</Td>
-                  <Td>{value.value}</Td>
-                </Tr>
-              )
-            })}
+            <thead>
+              <Tr>
+                <Th className="Border-right">Conductores</Th>
+                <Th className="Border-right">Nombres y apellidos</Th>
+                <Th className="Border-right">Nº Cédula</Th>
+                <Th className="Border-right">Nº Licencia</Th>
+                <Th>Vigencia</Th>
+              </Tr>
+            </thead>
+            <tbody>
+              <Tr>
+                <Th className="Border-right">Conductor 1</Th>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td>{driver[0].value}</Td>
+              </Tr>
+              <Tr>
+                <Th className="Border-right">Conductor 2</Th>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td>{driver[0].value}</Td>
+              </Tr>
+              <Tr>
+                <Th className="Border-right">Conductor 3</Th>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td className="Border-right">{driver[0].value}</Td>
+                <Td>{driver[0].value}</Td>
+              </Tr>
+            </tbody>
           </Table>
         </section>
-        <section>
-          <TableTitle>RESPONSABLE CONTRATANTE</TableTitle>
+        <section className="Border-bottom">
+          <TableTitle className="Border-bottom">
+            RESPONSABLE CONTRATANTE
+          </TableTitle>
           <Table>
             <Tr>
-              <Th>Nombres y apellidos</Th>
-              <Th>Nº Cédula</Th>
-              <Th>Telefono</Th>
+              <Th className="Border-right">Nombres y apellidos</Th>
+              <Th className="Border-right">Nº Cédula</Th>
+              <Th className="Border-right">Telefono</Th>
               <Th>Dirección</Th>
             </Tr>
             <Tr>
-              <Td>El contratante</Td>
-              <Td>El contratante</Td>
-              <Td>El contratante</Td>
+              <Td className="Border-right">El contratante</Td>
+              <Td className="Border-right">El contratante</Td>
+              <Td className="Border-right">El contratante</Td>
               <Td>El contratante</Td>
             </Tr>
           </Table>
         </section>
       </DocumentMain>
       <DocumentFooter>
-        <DocumentSection>
-          <div>
+        <DocumentSection className="Border-bottom">
+          <ContactInfo>
             <DocumentSubTitle>DATOS DE CONTACTO DE LA EMPRESA</DocumentSubTitle>
             <DocumentInfo>
               Servicio especial A&G TOURS S.A.S <br />
@@ -216,11 +244,14 @@ export default function Preview({ location, data }) {
               Cel. 310 284 6000 <br />
               Email: agtours.sas@gmail.com www.aygtours.com
             </DocumentInfo>
-          </div>
-          <SignatureContainer>
+          </ContactInfo>
+          <SignatureContainer className="Border-left">
             <DocumentSubTitle>FIRMA DEL REPRESENTANTE LEGAL</DocumentSubTitle>
             <div>
-              <img src="" alt="La firma" />
+              <Signature
+                src={data.allFile.edges[6].node.childImageSharp.original.src}
+                alt="La firma"
+              />
             </div>
             <small>Firma Digital Ley 527 del 199, decreto 2364 de 2012</small>
           </SignatureContainer>

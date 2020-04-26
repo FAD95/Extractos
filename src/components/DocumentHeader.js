@@ -27,15 +27,15 @@ export default function DocumentHeaderComponent({ data }) {
   // )
   return (
     <DocumentHeader>
-      <DocumentHeaderInfo>
-        <HeaderImageContainer>
+      <DocumentHeaderInfo className="Border-bottom">
+        <HeaderImageContainer className="Border-right">
           {" "}
           <img
             src={data.allFile.edges[3].node.childImageSharp.original.src}
             alt=""
           />
         </HeaderImageContainer>
-        <HeaderImageContainer>
+        <HeaderImageContainer className="Border-right">
           {" "}
           <HeaderImg
             src={data.allFile.edges[4].node.childImageSharp.original.src}
@@ -50,14 +50,12 @@ export default function DocumentHeaderComponent({ data }) {
           />
         </HeaderImageContainer>
       </DocumentHeaderInfo>
-      <DocumentHeaderDescription>
+      <DocumentHeaderDescription className="Border-bottom">
         <DocumentTitle>
-          Ficha técnica del formato único del extracto de contrato "FUEC"
-          servico público de transporte terrestre automotor especial FICHA
+          FORMATO UNICO DE EXTRACTO DEL CONTRATO DEL SERVICIO PUBLICO DE
+          TRANSPORTE TERRESTRE AUTOMOTOR ESPECIAL
         </DocumentTitle>
-        <DocumentSubTitle>
-          # 208005813 {date.getFullYear()} 0123 0681
-        </DocumentSubTitle>
+        <DocumentSubTitle># 208005813{date.getFullYear()}</DocumentSubTitle>
       </DocumentHeaderDescription>
     </DocumentHeader>
   )
