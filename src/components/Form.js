@@ -39,123 +39,121 @@ const Form = () => {
 
   useEffect(() => {})
   return (
-    <>
-      <form>
-        <section>
-          <label htmlFor="Driver">Nombre del conductor: </label>
+    <form>
+      <section>
+        <label htmlFor="Driver">Nombre del conductor: </label>
+        <MultiSelect
+          id="Driver"
+          options={ArrayListGenerator(drivers, "name")}
+          value={driver}
+          labelledBy={"Driver"}
+          hasSelectAll={false}
+          onChange={setDriver}
+        />
+      </section>
+      <section>
+        <label htmlFor="Car">Placa del vehiculo: </label>
+        <MultiSelect
+          id="Car"
+          options={ArrayListGenerator(cars, "plate")}
+          value={car}
+          labelledBy={"Driver"}
+          hasSelectAll={false}
+          onChange={setCar}
+        />
+      </section>
+      <section>
+        <label htmlFor="Client">Contratante:</label>
+        <MultiSelect
+          id="Client"
+          options={ArrayListGenerator(cars, "plate")}
+          value={client}
+          labelledBy={"Driver"}
+          hasSelectAll={false}
+          onChange={setClient}
+        />
+      </section>
+      <section>
+        <div>
+          <label htmlFor="Origin">Origen: </label>
           <MultiSelect
-            id="Driver"
-            options={ArrayListGenerator(drivers, "name")}
-            value={driver}
-            labelledBy={"Driver"}
+            id="Origin"
+            options={ColombiaListGenerator()}
+            value={origin}
+            labelledBy={"Origin"}
             hasSelectAll={false}
-            onChange={setDriver}
+            onChange={handleOriginClear}
           />
-        </section>
-        <section>
-          <label htmlFor="Car">Placa del vehiculo: </label>
+        </div>
+        <div>
+          <label htmlFor="Destiny">Destino: </label>
           <MultiSelect
-            id="Car"
-            options={ArrayListGenerator(cars, "plate")}
-            value={car}
-            labelledBy={"Driver"}
+            id="Destiny"
+            options={ColombiaListGenerator()}
+            value={destiny}
+            onChange={handleDestinyClear}
+            labelledBy={"Destiny"}
             hasSelectAll={false}
-            onChange={setCar}
+            multi={false}
+            // isLoading={true}
           />
-        </section>
-        <section>
-          <label htmlFor="Client">Contratante:</label>
-          <MultiSelect
-            id="Client"
-            options={ArrayListGenerator(cars, "plate")}
-            value={client}
-            labelledBy={"Driver"}
-            hasSelectAll={false}
-            onChange={setClient}
+        </div>
+      </section>
+      <section>
+        <div>
+          <label htmlFor="StartDate">Fecha de inicio: </label>
+          <input
+            ref={startDate}
+            type="date"
+            id="StartDate"
+            onChange={handleStartDate}
           />
-        </section>
-        <section>
-          <div>
-            <label htmlFor="Origin">Origen: </label>
-            <MultiSelect
-              id="Origin"
-              options={ColombiaListGenerator()}
-              value={origin}
-              labelledBy={"Origin"}
-              hasSelectAll={false}
-              onChange={handleOriginClear}
-            />
-          </div>
-          <div>
-            <label htmlFor="Destiny">Destino: </label>
-            <MultiSelect
-              id="Destiny"
-              options={ColombiaListGenerator()}
-              value={destiny}
-              onChange={handleDestinyClear}
-              labelledBy={"Destiny"}
-              hasSelectAll={false}
-              multi={false}
-              // isLoading={true}
-            />
-          </div>
-        </section>
-        <section>
-          <div>
-            <label htmlFor="StartDate">Fecha de inicio: </label>
-            <input
-              ref={startDate}
-              type="date"
-              id="StartDate"
-              onChange={handleStartDate}
-            />
-          </div>
-          <div>
-            <label htmlFor="FinishDate">Fecha de finalización: </label>
-            <input
-              ref={finishDate}
-              type="date"
-              id="FinishDate"
-              onChange={handleFinishDate}
-            />
-          </div>
-        </section>
-        <section>
-          <label htmlFor="Target">Objeto del contrato: </label>
-          <textarea
-            ref={contractObjective}
-            name="Target"
-            id="Target"
-            cols="30"
-            rows="3"
-            onChange={handleTextarea}
-          ></textarea>
-        </section>
-        {origin > [] &&
-        driver > [] &&
-        car > [] &&
-        destiny > [] &&
-        startDate > "" &&
-        finishDate > "" &&
-        contractObejectiveHook > "" ? (
-          <Link
-            to="preview"
-            state={{
-              origin: origin[0].value,
-              driver: driver,
-              car: car,
-              client: client[0].value,
-              destiny: destiny[0].value,
-              startDate: startDateHook,
-              finishDate: finishDateHook,
-              contractObjective: contractObejectiveHook,
-            }}
-          >
-            Preview
-          </Link>
-        ) : null}
-      </form>
-    </>
+        </div>
+        <div>
+          <label htmlFor="FinishDate">Fecha de finalización: </label>
+          <input
+            ref={finishDate}
+            type="date"
+            id="FinishDate"
+            onChange={handleFinishDate}
+          />
+        </div>
+      </section>
+      <section>
+        <label htmlFor="Target">Objeto del contrato: </label>
+        <textarea
+          ref={contractObjective}
+          name="Target"
+          id="Target"
+          cols="30"
+          rows="3"
+          onChange={handleTextarea}
+        ></textarea>
+      </section>
+      {origin > [] &&
+      driver > [] &&
+      car > [] &&
+      destiny > [] &&
+      startDate > "" &&
+      finishDate > "" &&
+      contractObejectiveHook > "" ? (
+        <Link
+          to="preview"
+          state={{
+            origin: origin[0].value,
+            driver: driver,
+            car: car,
+            client: client[0].value,
+            destiny: destiny[0].value,
+            startDate: startDateHook,
+            finishDate: finishDateHook,
+            contractObjective: contractObejectiveHook,
+          }}
+        >
+          Preview
+        </Link>
+      ) : null}
+    </form>
   )
 }
 export default Form

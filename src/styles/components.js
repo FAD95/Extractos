@@ -15,113 +15,103 @@ export const DocumentArticle = styled.article`
   .Border-left {
     border-left: solid 1px black;
   }
+  .Flex {
+    display: flex;
+  }
+  .W25 {
+    width: 25%;
+  }
+  .W50 {
+    width: 50%;
+  }
+  .W100 {
+    width: 100%;
+  }
+  .Text-center {
+    text-align: center;
+  }
+  .Space-evenly {
+    justify-content: space-evenly;
+  }
+  .Space-between {
+    justify-content: space-between;
+  }
+  .M0 {
+    margin: 0;
+  }
+  .Align-items-center {
+    align-items: center;
+  }
+  .Padding-right {
+    padding-right: 2em;
+  }
+  .Margin-left-auto {
+    margin-left: auto;
+  }
 `
-export const DocumentHeader = styled.header``
-
-export const DocumentHeaderInfo = styled.header`
+export const DocumentInfo = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
 `
-
-export const DocumentHeaderDescription = styled.header`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-`
-
-export const DocumentMain = styled.main``
 
 export const DocumentSection = styled.section`
   display: flex;
-  align-items: baseline;
-`
-
-export const DocumentMainDiv = styled.div`
-  display: flex;
   align-items: center;
-  min-width: 50%;
 `
 
-export const DocumentFooter = styled.footer``
-
-export const DocumentTitle = styled.h1`
+export const H1 = styled.h1`
   font-size: 16px;
-  margin: 0;
 `
-export const DocumentSubTitle = styled.h2`
+export const H2 = styled.h2`
   font-size: 14px;
   margin: 0 5px 0 0;
 `
-export const DocumentSubTitleH3 = styled.h3`
+export const H3 = styled.h3`
   font-size: 14px;
   margin: 0;
+  padding: 0;
 `
-export const DocumentInfo = styled.p`
-  font-size: 14px;
+export const P = styled.p`
+  font-size: 12px;
   margin: 0;
+  padding: 0;
+`
+export const Small = styled.small`
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
 `
 export const HeaderImageContainer = styled.div`
   width: 272px;
-  text-align: center;
 `
 export const HeaderImg = styled.img`
   width: 82px;
-  margin: 0;
 `
-
-export const VehicleDiv = styled.div`
-  min-width: 85px;
-`
-
 export const Table = styled.table`
   width: 100%;
-  margin: 2px 0 0 0;
+  margin: 0;
 `
-export const Tr = styled.tr``
 export const Th = styled.th`
   font-size: 14px;
   text-align: center;
   padding: 0;
-`
-export const Td = styled.td`
-  font-size: 14px;
-  text-align: center;
-  padding: 5px 3px;
-`
-export const TDate = styled.table`
-  width: 100%;
   margin: 0;
 `
-export const TDateContainer = styled.div`
-  min-width: 50%;
+export const Td = styled.td`
+  font-size: 12px;
   text-align: center;
+  padding: 0;
+  margin: 0;
 `
 export const FooterImg = styled.img`
   margin: 0;
-  width: 100px;
-`
-export const EndFooter = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 80px;
 `
 export const SignatureContainer = styled.div`
   width: 800px;
   text-align: center;
 `
-
-export const TableTitle = styled.h2`
-  font-size: 14px;
-  padding: 5px 0 0 0;
-  text-align: center;
-  margin: 0;
-`
-
 export const Signature = styled.img`
-  width: 300px;
-  margin: 0;
-`
-export const ContactInfo = styled.div`
-  width: 100%;
+  width: 250px;
   margin: 0;
 `

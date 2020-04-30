@@ -1,13 +1,5 @@
 import React from "react"
-import {
-  DocumentHeader,
-  DocumentHeaderInfo,
-  DocumentHeaderDescription,
-  HeaderImageContainer,
-  HeaderImg,
-  DocumentTitle,
-  DocumentSubTitle,
-} from "../styles/components"
+import { HeaderImageContainer, HeaderImg, H1, H2 } from "../styles/components"
 
 export default function DocumentHeaderComponent({ data }) {
   const date = new Date()
@@ -26,37 +18,39 @@ export default function DocumentHeaderComponent({ data }) {
   //   "Diciembre"
   // )
   return (
-    <DocumentHeader>
-      <DocumentHeaderInfo className="Border-bottom">
-        <HeaderImageContainer className="Border-right">
+    <header>
+      <section className="Border-bottom Flex Space-evenly">
+        <HeaderImageContainer className="Border-right Text-center">
           {" "}
           <img
+            className="M0"
             src={data.allFile.edges[3].node.childImageSharp.original.src}
             alt=""
           />
         </HeaderImageContainer>
-        <HeaderImageContainer className="Border-right">
+        <HeaderImageContainer className="Border-right Text-center">
           {" "}
           <HeaderImg
+            className="M0"
             src={data.allFile.edges[4].node.childImageSharp.original.src}
             alt=""
           />
         </HeaderImageContainer>
-
-        <HeaderImageContainer>
+        <HeaderImageContainer className="Text-center">
           <HeaderImg
+            className="M0"
             src={data.allFile.edges[2].node.childImageSharp.original.src}
             alt=""
           />
         </HeaderImageContainer>
-      </DocumentHeaderInfo>
-      <DocumentHeaderDescription className="Border-bottom">
-        <DocumentTitle>
+      </section>
+      <section className="Border-bottom Text-center">
+        <H1 className="M0">
           FORMATO UNICO DE EXTRACTO DEL CONTRATO DEL SERVICIO PUBLICO DE
           TRANSPORTE TERRESTRE AUTOMOTOR ESPECIAL
-        </DocumentTitle>
-        <DocumentSubTitle># 208005813{date.getFullYear()}</DocumentSubTitle>
-      </DocumentHeaderDescription>
-    </DocumentHeader>
+        </H1>
+        <H2># 208005813{date.getFullYear()}</H2>
+      </section>
+    </header>
   )
 }
