@@ -45,7 +45,7 @@ export default function DocumentHeaderComponent({ data }) {
         </HeaderImageContainer>
       </section>
       <section className="Border-bottom Text-center">
-        <H1 className="M0">
+        <H1>
           FORMATO UNICO DE EXTRACTO DEL CONTRATO DEL SERVICIO PUBLICO DE
           TRANSPORTE TERRESTRE AUTOMOTOR ESPECIAL
         </H1>

@@ -48,6 +48,9 @@ export const DocumentArticle = styled.article`
   .Margin-left-auto {
     margin-left: auto;
   }
+  .Padding-x {
+    padding: 0 0.5em;
+  }
 `
 export const DocumentInfo = styled.div`
   display: flex;
@@ -61,10 +64,13 @@ export const DocumentSection = styled.section`
 
 export const H1 = styled.h1`
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 `
 export const H2 = styled.h2`
   font-size: 14px;
   margin: 0 5px 0 0;
+  padding: 0;
 `
 export const H3 = styled.h3`
   font-size: 14px;
@@ -85,7 +91,7 @@ export const HeaderImageContainer = styled.div`
   width: 272px;
 `
 export const HeaderImg = styled.img`
-  width: 82px;
+  width: 70px;
 `
 export const Table = styled.table`
   width: 100%;
@@ -114,4 +120,8 @@ export const SignatureContainer = styled.div`
 export const Signature = styled.img`
   width: 250px;
   margin: 0;
+`
+export const TypeLabel = styled.label`
+  font-size: 12px;
+  margin-right: 1em;
 `
